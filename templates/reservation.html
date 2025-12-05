@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Reservasi - Le Restaurant{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Buat Reservasi</h2>
+    
+    <!-- Form Reservasi -->
+    <form method="POST" action="{{ url_for('reservation') }}">
+        <div class="form-group">
+            <label for="name">Nama Lengkap</label>
+            <input type="text" id="name" name="name" required placeholder="Masukkan nama lengkap">
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="email@example.com">
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Nomor Telepon</label>
+            <input type="tel" id="phone" name="phone" required placeholder="08XX-XXXX-XXXX">
+        </div>
+        
+        <div class="form-group">
+            <label for="date">Tanggal</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="time">Waktu</label>
+            <input type="time" id="time" name="time" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="guests">Jumlah Tamu</label>
+            <select id="guests" name="guests" required>
+                <option value="">Pilih jumlah tamu</option>
+                <option value="1">1 orang</option>
+                <option value="2">2 orang</option>
+                <option value="3">3 orang</option>
+                <option value="4">4 orang</option>
+                <option value="5">5 orang</option>
+                <option value="6">6 orang</option>
+                <option value="7">7 orang</option>
+                <option value="8">8 orang</option>
+                <option value="9">9 orang</option>
+                <option value="10">10+ orang</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Catatan Khusus (Opsional)</label>
+            <textarea id="message" name="message" rows="4" placeholder="Permintaan khusus, alergi makanan, dll."></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-success" style="width: 100%;">Buat Reservasi</button>
+    </form>
+    
+    <p style="text-align: center; margin-top: 1.5rem;">
+        <a href="{{ url_for('dashboard') }}" style="color: #3498db;">← Kembali ke Dashboard</a>
+    </p>
+</div>
+
+<script>
+    const dateInput = document.getElementById('date');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+</script>
+{% endblock %}

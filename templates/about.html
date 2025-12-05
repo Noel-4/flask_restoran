@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}About - Le Restaurant{% endblock %}
+
+{% block content %}
+<div class="section">
+    <div class="container">
+        <h1 style="text-align: center; margin-bottom: 2rem;">Tentang Le Restaurant</h1>
+        
+        <div style="max-width: 800px; margin: 0 auto; line-height: 1.8;">
+            <h2>Sejarah Kami</h2>
+            <p>
+                Le Restaurant didirikan pada tahun 2015 dengan visi membawa cita rasa autentik masakan Prancis ke Indonesia. 
+                Dengan tim chef berpengalaman yang telah menimba ilmu langsung di Prancis, kami berkomitmen untuk 
+                memberikan pengalaman kuliner terbaik bagi setiap tamu yang berkunjung.
+            </p>
+            
+            <h2 style="margin-top: 2rem;">Filosofi Kami</h2>
+            <p>
+                Kami percaya bahwa makanan bukan hanya tentang rasa, tetapi juga tentang pengalaman. Setiap hidangan 
+                yang kami sajikan dibuat dengan bahan-bahan pilihan terbaik, teknik memasak klasik Prancis, dan 
+                sentuhan inovasi modern. Suasana restoran kami dirancang untuk memberikan kenyamanan dan kesan elegan 
+                yang akan membuat setiap kunjungan Anda berkesan.
+            </p>
+            
+            <h2 style="margin-top: 2rem;">Chef Kami</h2>
+            <p>
+                Dipimpin oleh Executive Chef Noel Anderson dan istrinya Furina de Fontaine yang telah berpengalaman lebih dari 20 tahun di 
+                industri kuliner Prancis, tim dapur kami siap menghadirkan hidangan berkelas dunia. Chef Azzey dan Chef Rizz 
+                pernah bekerja di berbagai restoran Michelin di Paris dan Café Lutece di Fontaine, dan Cheff Aldo le Paris yang mempunyai pengalaman
+                di restoran kelas atas Paris sebelum memutuskan untuk membawa keahliannya ke Solo. 
+            </p>
+            
+            <h2 style="margin-top: 2rem;">Lokasi & Kontak</h2>
+            <p>
+                <strong>Alamat:</strong> Jl. Slamet Riyadi No. 123, Surakarta<br>
+                <strong>Telepon:</strong> (021) 1234-5678<br>
+                <strong>Email:</strong> le@restaurant.com<br>
+                <strong>Jam Operasional:</strong><br>
+                - Senin - Jumat: 11:00 - 22:00<br>
+                - Sabtu - Minggu: 10:00 - 23:00
+            </p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: #f8f9fa; border-radius: 8px;">
+            <h2>Siap Merasakan Pengalaman Kuliner Terbaik?</h2>
+            <p style="margin-bottom: 1.5rem;">Reservasi sekarang dan nikmati hidangan spesial kami!</p>
+            {% if session.user_id %}
+            <a href="{{ url_for('reservation') }}" class="btn btn-success">Buat Reservasi</a>
+            {% else %}
+            <a href="{{ url_for('register') }}" class="btn btn-primary">Daftar Sekarang</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

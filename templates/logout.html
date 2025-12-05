@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Logout - Le Restaurant{% endblock %}
+
+{% block content %}
+<div class="section">
+    <div class="container" style="text-align: center; padding: 4rem 0;">
+        <div style="background: #f8f9fa; padding: 3rem; border-radius: 8px; max-width: 500px; margin: 0 auto;">
+            <h1>Logout Berhasil</h1>
+            <p style="font-size: 1.1rem; color: #666; margin: 1rem 0;">
+                Anda telah berhasil keluar dari akun.
+            </p>
+            
+            <div style="margin-top: 2rem;">
+                <p style="margin-bottom: 1rem;">Terima kasih telah menggunakan Le Restaurant!</p>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="{{ url_for('index') }}" class="btn btn-primary">Kembali ke Beranda</a>
+                    <a href="{{ url_for('login') }}" class="btn btn-success">Login Kembali</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

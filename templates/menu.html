@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Menu - Le Restaurant{% endblock %}
+
+{% block content %}
+<div class="section">
+    <div class="container">
+        <h1 style="text-align: center; margin-bottom: 2rem;">Daftar Menu</h1>
+        
+        <!-- Filter Kategori -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <a href="{{ url_for('menu') }}" class="btn {% if not current_category %}btn-primary{% endif %}">
+                Semua
+            </a>
+            {% for cat in categories %}
+            <a href="{{ url_for('menu', category=cat.category) }}" 
+               class="btn {% if current_category == cat.category %}btn-primary{% endif %}">
+                {{ cat.category }}
+            </a>
+            {% endfor %}
+        </div>
+        
+        {% if menu_items %}
+        <div class="menu-grid">
+            {% for item in menu_items %}
+            <div class="menu-card">
+                <img src="{{ item.image_url }}" alt="{{ item.name }}" onerror="this.src='https://via.placeholder.com/400x200?text=Menu+Image'">
+                <div class="menu-card-content">
+                    <h3>{{ item.name }}</h3>
+                    <span class="category">{{ item.category }}</span>
+                    <p>{{ item.description }}</p>
+                    <div class="price">Rp {{ "{:,}".format(item.price) }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p style="text-align: center; padding: 2rem;">Tidak ada menu dalam kategori ini.</p>
+        {% endif %}
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            {% if session.user_id %}
+            <a href="{{ url_for('reservation') }}" class="btn btn-success">Buat Reservasi Sekarang</a>
+            {% else %}
+            <p>Ingin memesan? <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a> atau <a href="{{ url_for('register') }}" class="btn btn-success">Daftar</a></p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
