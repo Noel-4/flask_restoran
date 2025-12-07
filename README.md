@@ -1,4 +1,4 @@
-# Le Restaurat — Aplikasi Reservasi Restoran 
+# Le Restaurant — Aplikasi Reservasi Restoran 
 
 Aplikasi ini merupakan sistem reservasi restoran yang memudahkan pelanggan untuk melihat daftar menu dan melakukan pemesanan tempat. Pengguna dapat memilih tanggal, jam, serta jumlah orang yang akan hadir. Dengan antarmuka yang sederhana dan informatif, aplikasi ini membantu restoran mengelola reservasi secara lebih efisien sekaligus memberikan pengalaman pemesanan yang cepat dan praktis bagi pelanggan.
 
